@@ -20,6 +20,9 @@
             {{ headlines[1] }}
           </h4>
           <ul>
+            <!--Read up more about v-bind and maintaining state with key:
+            https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key
+           -->
             <li v-for="(contact, key) in contact" :key="key">
               {{ contact }}
             </li>
@@ -57,33 +60,20 @@
           <h4 class="section-headline">
             {{ headlines[4] }}
           </h4>
-          <div>Senior Data Scientist</div>
-          <div>ABC Analytics Inc., London, 2022 - Present</div>
-
-          <ul>
-            <li>
-              Led a team of data scientists in developing advanced machine
-              learning models for predictive analytics
-            </li>
-            <li>
-              Designed and implemented a recommendation system that boosted
-              cross-selling, leading to a 20% increase in revenue
-            </li>
-          </ul>
-
-          <div>Data Scientist</div>
-          <div>XYZ Data Solutions, London, 2022 - Present</div>
-
-          <ul>
-            <li>
-              Developed and deployed machine learning models for fraud
-              detection, reducing fraudulent transactions by 18%
-            </li>
-            <li>
-              Conducted in-depth exploratory data analysis to identify key
-              trends and insights
-            </li>
-          </ul>
+          <div v-for="(item, index) in experience" :key="index">
+            <div>
+              {{ item.title }}
+            </div>
+            <div class="d-flex justify-content-between">
+              <div>{{ item.company }}, {{ item.location }}</div>
+              <div>{{ item.date }}</div>
+            </div>
+            <ul>
+              <li v-for="(desc, innerIndex) in item.description" :key="innerIndex">
+                {{ desc }}
+              </li>
+            </ul>
+          </div>
 
           <h4 class="section-headline">
             {{ headlines[5] }}
@@ -141,6 +131,37 @@
           "Machine Learning",
           "Natural Language Processing",
           "Recommendation Systems"
+      ],
+      experience: [
+        {
+          title:"Software Engineer",
+          company: "ABC Company",
+          location: "Chicago,IL",
+          date: "2023-Present",
+          description: ["Worked on a team of engineers to create XYZ product.", 
+          "Designed and implemented a recommendation system that boosted cross-selling, leading to a 20% increase in revenue."],
+        },
+        {
+          title: "Data Scientist",
+          company: "XYZ Data Solutions",
+          location: "London",
+          date: "2017 - 2019",
+          description: [
+            "Developed and deployed machine learning models for fraud detection, reducing fraudulent transactions by 18%",
+            "Conducted in-depth exploratory data analysis to identify key trends and insights",
+            "Worked on data preprocessing, feature engineering, and model selection to improve model performance"
+        ]
+      },
+          {
+        title: "Data Scientist Trainee",
+        company: "Data Insights Ltd.",
+        location: "New York City",
+        date: "2016-2017",
+        description: [
+          "Collaborated with external partners to integrate third-party data sources, expanding the company's data assets and enhancing predictive modeling capabilities.",
+          "Presented data-driven insights and recommendations to executive leadership, influencing strategic decisions and driving revenue growth."
+        ]
+      }
       ]
     }
   }
@@ -155,6 +176,10 @@
   For North America letter size use width: 8.5in; height: 11in; */
   height: 297mm;
   width: 210mm;
+}
+
+.inner-section{
+  margin-bottom: 20px;
 }
 
 .section-headline {
