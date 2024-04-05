@@ -1,24 +1,40 @@
+:root {
+  --highlight-color-left: #82C0CC;
+  --background-color-left: #3943B7;
+  --text-color-left: #ffffff;
+  --highlight-color-right: #3943B7;
+  --background-color-right: #ffffff;
+  --text-color-right: #000505;
+}
+
 .container {
   margin: 40px auto;
   max-width: 1200px;
 }
 
-#resume {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  /* DIN A4 standard paper size. commonly used for resumes
-  For North America letter size use width: 8.5in; height: 11in; */
-  height: 297mm;
-  width: 210mm;
-}
 
-d-flex {
+.d-flex {
   display: flex;
 }
 
-left-col {
+.left-col {
+  background-color: var(--background-color-left);
+  color: var(--text-color-left);
+  border-right: 1px solid var(--highlight-color-left);
   width: 30%;
+  padding: 30px;
 }
 
-right-col {
+.right-col {
+  background-color: var(--background-color-right);
+  color: var(--text-color-right);
   width: 70%;
+  padding: 30px;
+}
+
+
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
 }
