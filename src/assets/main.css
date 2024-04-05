@@ -1,0 +1,24 @@
+.container {
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+#resume {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  /* DIN A4 standard paper size. commonly used for resumes
+  For North America letter size use width: 8.5in; height: 11in; */
+  height: 297mm;
+  width: 210mm;
+}
+
+d-flex {
+  display: flex;
+}
+
+left-col {
+  width: 30%;
+}
+
+right-col {
+  width: 70%;
+}
