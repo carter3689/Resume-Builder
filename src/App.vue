@@ -19,6 +19,11 @@
           <h4 class="section-headline">
             {{ headlines[1] }}
           </h4>
+
+          <!-- <input type="text" v-model="headlines[0]"> this won't work because an input can not wrap text
+            Instead we can use contenteditable="true"
+          --> 
+
           <ul>
             <!--Read up more about v-bind and maintaining state with key:
             https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key
