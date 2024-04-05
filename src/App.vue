@@ -4,17 +4,16 @@
       <div id="resume" class="d-flex">
         <div class="left-col">
           <div class="resume-section">
-            <img v-bind:src ="imageUrl" class="profile-pic" alt="Profile Picture for Resume">
+            <!--v-bind can be shorthanded with :src-->
+            <img v-bind:src="imageUrl" class="profile-pic" alt="Profile Picture for Resume">
           <h4 class="section-headline">
-            About Me
+            {{ headlines[0] }}
           </h4>
           <div>
             {{introText}}
           </div>
-
-
           <h4 class="section-headline">
-            Contact
+          {{ headlines[1] }}
           </h4>
           <ul>
             <li>708-555-4490</li>
@@ -24,7 +23,7 @@
 
 
           <h4 class="section-headline">
-            Skills
+        {{ headlines[2]}}
           </h4>
           <ul>
             <li>Python</li>
@@ -36,7 +35,7 @@
 
 
           <h4 class="section-headline">
-            Certifications
+            {{ headlines[3]}}
           </h4>
           <ul>
             <li>Natural Language Processing with Python(Coursera)</li>
@@ -55,7 +54,7 @@
           </div>
 
           <h4 class="section-headline">
-            Experience
+            {{ [headlines[4]] }}
             </h4>
             <div>Senior Data Scientist</div>
               <div>ABC Analytics Inc., London, 2022 - Present</div>
@@ -83,7 +82,7 @@
 
 
             <h4 class="section-headline">
-              Education
+              {{ headlines[5] }}
             </h4>
             <div>Master of Science in Data Science</div>
               <div>StellarTech University, Starville, 2020-2022</div>
@@ -115,7 +114,8 @@
         name: "Joel Carter",
         title: "Data Scientist",
         introText: "From data cleaning to data anaylsis to machine learning, I am passionate about everything data.",
-        imageUrl: "./profileimage.jpg"
+        imageUrl: "./profileimage.jpg",
+        headlines: ["About Me", "Contact", "Skills", "Certifications", "Experience", "Education"]
       }
     }
   }
