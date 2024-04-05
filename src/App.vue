@@ -27,8 +27,14 @@
             <!--Read up more about v-bind and maintaining state with key:
             https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key
            -->
-            <li v-for="(contact, key) in contact" :key="key">
-              {{ contact }}
+            <li contenteditable="true" @blur="updateProperty($event, 'contact', 'phone')">
+              {{ contact.phone }}
+            </li>
+            <li contenteditable="true" @blur="updateProperty($event, 'contact', 'email')">
+              {{ contact.email }}
+            </li>
+            <li contenteditable="true" @blur="updateProperty($event, 'contact', 'address')">
+              {{ contact.address }}
             </li>
           </ul>
 
@@ -39,10 +45,15 @@
             <!--Don't add v-for to parent node JUST to child node(s) or the in other words
             The place you want to repeat
           -->
-            <li v-for="skill in skills" :key="skill.id">{{ skill }}</li>
+            <li v-for="skill in skills" :key="skill.id"
+              contenteditable="true"
+              @blur="updateNestedProperty($event,'skills', index)"
+            >{{ skill }}</li>
           </ul>
 
-          <h4 class="section-headline">
+          <h4 class="section-headline"
+            @blur="updateNestedProperty($event, 'highlights', index)"  
+          >
             {{ headlines[3] }}
           </h4>
           <ul>
@@ -193,6 +204,10 @@
 
     updateProperty(event, key){
       this[key] = event.target.innerText
+    },
+
+    updateNestedProperty(event, key1, key2){
+      this[key1][key2] = event.target.innerText;
     }
   }
 }
