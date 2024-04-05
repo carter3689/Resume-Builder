@@ -60,7 +60,7 @@
           <h4 class="section-headline">
             {{ headlines[4] }}
           </h4>
-          <div v-for="(item, index) in experience" :key="index">
+          <div v-for="(item, index) in experience" :key="index" class="inner-section">
             <div>
               {{ item.title }}
             </div>
@@ -78,31 +78,20 @@
           <h4 class="section-headline">
             {{ headlines[5] }}
           </h4>
-          <div>Master of Science in Data Science</div>
-          <div>StellarTech University, Starville, 2020-2022</div>
-          <ul>
-            <li>
-              Coursework included advanced machine learning, statistical
-              modeling, and data visualization techniques.
-            </li>
-            <li>
-              Thesis: 'Predictive Modeling for Customer Churn in E-commerce
-              using Random Forest.'
-            </li>
-          </ul>
-
-          <div>Bachelor of Science in Computer Science</div>
-          <div>Evergreen State University, Springdale, 2012-2015</div>
-          <ul>
-            <li>
-              Relevant coursework in database management, algorithms, and
-              programming languages.
-            </li>
-            <li>
-              Senior project: 'Development of a Recommender System for Movie
-              Ratings.'
-            </li>
-          </ul>
+          <div v-for="(item, index) in education" :key="index">
+            <div>
+              {{ item.title }}
+            </div>
+            <div class="d-flex justify-content-between">
+              <div> {{ item.university }}, {{ item.location }}</div>
+              <div>{{  item.date }}</div>
+            </div>
+            <ul>
+              <li v-for="(desc, innerIndex) in item.description" :key="innerIndex" >
+                {{ desc }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -162,6 +151,28 @@
           "Presented data-driven insights and recommendations to executive leadership, influencing strategic decisions and driving revenue growth."
         ]
       }
+      ],
+      education: [
+        {
+          title: "Master of Science in Data Science",
+          university: "StellarTech University",
+          location: "Starville",
+          date: "2020-2022",
+          description: [
+            "Coursework included advanced machine learning, statistical modeling, and data visualization techniques.",
+            "Thesis: 'Predictive Modeling for Customer Churn in E-commerce using Random Forest.'"
+          ]
+        },
+        {
+          title: "Bachelor of Science in Computer Science",
+          university: "Evergreen State University",
+          location: "Springdale",
+          date: "2012-2015",
+          description: [
+            "Relevant coursework in database management, algorithms, and programming languages.",
+            "Senior project: 'Development of a Recommender System for Movie Ratings.'"
+          ]
+        }
       ]
     }
   }
