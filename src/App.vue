@@ -10,13 +10,17 @@
             class="profile-pic"
             alt="Profile Picture for Resume"
           />
-          <h4 class="section-headline">
+          <h4 class="section-headline"
+           contenteditable="true" 
+           @blur="updateHeadline($event, 0)">
             {{ headlines[0] }}
           </h4>
-          <div>
+          <div contenteditable="true"
+            @blur = "updateProperty($event, 'introText')"
+          >
             {{ introText }}
           </div>
-          <h4 class="section-headline">
+          <h4 class="section-headline" contenteditable="true">
             {{ headlines[1] }}
           </h4>
           <ul>
@@ -50,10 +54,16 @@
 
       <div class="right-col">
         <div class="resume-section">
-          <div class="personal-name">
+          <div class="personal-name"
+            contenteditable="true"
+            @blur="updateProperty($event, 'name')"
+          >
             {{ name }}
           </div>
-          <div class="personal-title">
+          <div class="personal-title"
+            contenteditable="true"
+            @blur="updateProperty($event, 'title')"
+          >
             {{ title }}
           </div>
 
@@ -174,6 +184,15 @@
           ]
         }
       ]
+    }
+  },
+  methods: {
+    updateHeadline(event, index){
+      this.headlines[index] = event.target.innerText
+    },
+
+    updateProperty(event, key){
+      this[key] = event.target.innerText
     }
   }
 }
