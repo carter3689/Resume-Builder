@@ -1,52 +1,54 @@
 
 <template>
-    <main class="container">
-      <div id="resume" class="d-flex">
-        <div class="left-col">
-          <div class="resume-section">
-            <!--v-bind can be shorthanded with :src-->
-            <img v-bind:src="imageUrl" class="profile-pic" alt="Profile Picture for Resume">
+  <main class="container">
+    <div id="resume" class="d-flex">
+      <div class="left-col">
+        <div class="resume-section">
+          <!--v-bind can be shorthanded with :src-->
+          <img
+            v-bind:src="imageUrl"
+            class="profile-pic"
+            alt="Profile Picture for Resume"
+          />
           <h4 class="section-headline">
             {{ headlines[0] }}
           </h4>
           <div>
-            {{introText}}
+            {{ introText }}
           </div>
           <h4 class="section-headline">
-          {{ headlines[1] }}
+            {{ headlines[1] }}
           </h4>
           <ul>
-            <li>{{contact.phone}}</li>
-            <li>{{contact.email}}</li>
-            <li>{{contact.address}}</li>
+            <li v-for="(contact, key) in contact" :key="key">
+              {{ contact }}
+            </li>
           </ul>
 
-
           <h4 class="section-headline">
-        {{ headlines[2]}}
+            {{ headlines[2] }}
           </h4>
           <ul>
             <!--Don't add v-for to parent node JUST to child node(s) or the in other words
             The place you want to repeat
           -->
-            <li v-for="skill in skills" :key="skill.id"> {{ skill }}</li>
+            <li v-for="skill in skills" :key="skill.id">{{ skill }}</li>
           </ul>
 
-
           <h4 class="section-headline">
-            {{ headlines[3]}}
+            {{ headlines[3] }}
           </h4>
           <ul>
             <li>Natural Language Processing with Python(Coursera)</li>
             <li>Recommendation Systems with TensorFlow on GCP(Google)</li>
           </ul>
         </div>
-        </div>
+      </div>
 
-        <div class="right-col">
-          <div class="resume-section">
+      <div class="right-col">
+        <div class="resume-section">
           <div class="personal-name">
-            {{name}}
+            {{ name }}
           </div>
           <div class="personal-title">
             {{ title }}
@@ -54,55 +56,66 @@
 
           <h4 class="section-headline">
             {{ headlines[4] }}
-            </h4>
-            <div>Senior Data Scientist</div>
-              <div>ABC Analytics Inc., London, 2022 - Present</div>
+          </h4>
+          <div>Senior Data Scientist</div>
+          <div>ABC Analytics Inc., London, 2022 - Present</div>
 
-              <ul>
-                <li>
-                  Led a team of data scientists in developing advanced machine learning models for predictive analytics
-                </li>
-                <li>
-                  Designed and implemented a recommendation system that boosted cross-selling, leading to a 20% increase in revenue
-                </li>
-              </ul>
+          <ul>
+            <li>
+              Led a team of data scientists in developing advanced machine
+              learning models for predictive analytics
+            </li>
+            <li>
+              Designed and implemented a recommendation system that boosted
+              cross-selling, leading to a 20% increase in revenue
+            </li>
+          </ul>
 
-              <div>Data Scientist</div>
-              <div>XYZ Data Solutions, London, 2022 - Present</div>
+          <div>Data Scientist</div>
+          <div>XYZ Data Solutions, London, 2022 - Present</div>
 
-              <ul>
-                <li>
-                  Developed and deployed machine learning models for fraud detection, reducing fraudulent transactions by 18%
-                </li>
-                <li>
-                  Conducted in-depth exploratory data analysis to identify key trends and insights
-                </li>
-              </ul>
+          <ul>
+            <li>
+              Developed and deployed machine learning models for fraud
+              detection, reducing fraudulent transactions by 18%
+            </li>
+            <li>
+              Conducted in-depth exploratory data analysis to identify key
+              trends and insights
+            </li>
+          </ul>
 
+          <h4 class="section-headline">
+            {{ headlines[5] }}
+          </h4>
+          <div>Master of Science in Data Science</div>
+          <div>StellarTech University, Starville, 2020-2022</div>
+          <ul>
+            <li>
+              Coursework included advanced machine learning, statistical
+              modeling, and data visualization techniques.
+            </li>
+            <li>
+              Thesis: 'Predictive Modeling for Customer Churn in E-commerce
+              using Random Forest.'
+            </li>
+          </ul>
 
-            <h4 class="section-headline">
-              {{ headlines[5] }}
-            </h4>
-            <div>Master of Science in Data Science</div>
-              <div>StellarTech University, Starville, 2020-2022</div>
-              <ul>
-                <li>
-                    Coursework included advanced machine learning, statistical modeling, and data visualization techniques.
-                </li>
-                <li>
-                    Thesis: 'Predictive Modeling for Customer Churn in E-commerce using Random Forest.'
-                </li>
-              </ul>
-
-              <div>Bachelor of Science in Computer Science</div>
-              <div>Evergreen State University, Springdale, 2012-2015</div>
-              <ul>
-                <li>Relevant coursework in database management, algorithms, and programming languages.</li>
-                <li>Senior project: 'Development of a Recommender System for Movie Ratings.'</li>
-              </ul>
-            </div>
+          <div>Bachelor of Science in Computer Science</div>
+          <div>Evergreen State University, Springdale, 2012-2015</div>
+          <ul>
+            <li>
+              Relevant coursework in database management, algorithms, and
+              programming languages.
+            </li>
+            <li>
+              Senior project: 'Development of a Recommender System for Movie
+              Ratings.'
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
     </main>
 </template>
 
