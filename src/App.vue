@@ -16,9 +16,9 @@
           {{ headlines[1] }}
           </h4>
           <ul>
-            <li>708-555-4490</li>
-            <li>contact@gmail.com</li>
-            <li>Main St 100, 19777 NY</li>
+            <li>{{contact.phone}}</li>
+            <li>{{contact.email}}</li>
+            <li>{{contact.address}}</li>
           </ul>
 
 
@@ -26,11 +26,10 @@
         {{ headlines[2]}}
           </h4>
           <ul>
-            <li>Python</li>
-            <li>Pandas</li>
-            <li>SQL</li>
-            <li>R</li>
-            <li>Machine Learning</li>
+            <!--Don't add v-for to parent node JUST to child node(s) or the in other words
+            The place you want to repeat
+          -->
+            <li v-for="skill in skills" :key="skill.id"> {{ skill }}</li>
           </ul>
 
 
@@ -54,7 +53,7 @@
           </div>
 
           <h4 class="section-headline">
-            {{ [headlines[4]] }}
+            {{ headlines[4] }}
             </h4>
             <div>Senior Data Scientist</div>
               <div>ABC Analytics Inc., London, 2022 - Present</div>
@@ -115,10 +114,24 @@
         title: "Data Scientist",
         introText: "From data cleaning to data anaylsis to machine learning, I am passionate about everything data.",
         imageUrl: "./profileimage.jpg",
-        headlines: ["About Me", "Contact", "Skills", "Certifications", "Experience", "Education"]
-      }
+        headlines: ["About Me", "Contact", "Skills", "Certifications", "Experience", "Education"],
+        contact: {
+          phone: "708-555-4490",
+          email: "carter3689@gmail.com",
+          address: "Main St 100, 19777 NY"
+        },
+        skills: [
+          "Python",
+          "Pandas",
+          "SQL",
+          "R",
+          "Machine Learning",
+          "Natural Language Processing",
+          "Recommendation Systems"
+      ]
     }
   }
+}
 </script>
 
 <style scoped>
